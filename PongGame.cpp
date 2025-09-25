@@ -143,9 +143,12 @@ int main(void)
     ball.Speed_y = 4;
     ball.Radius = 15;
 
+    int paddleWidth = 8;
+    int paddleHeight = 70;
 
-    Paddle paddle1(10, Screen_Height / 2 - 35, 8, 70, 5);
-    Paddle paddle2(Screen_Width - 10 - 8, Screen_Height / 2 - 35, 8, 70, 5);
+
+    Paddle paddle1(10, Screen_Height / 2 - 35, paddleWidth, paddleHeight, 5);
+    Paddle paddle2(Screen_Width - 10 - paddleWidth, Screen_Height / 2 - 35, paddleWidth, paddleHeight, 5);
 
 
     InitWindow(Screen_Width, Screen_Height, "Pong Game");

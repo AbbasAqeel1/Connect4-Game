@@ -121,6 +121,7 @@ public:
         //If the palyer pressed Key_Down move the paddle Down
         if (!IsUp && y + Height < GetScreenHeight())
             y += speed;
+       
 
     }
 };
@@ -145,15 +146,16 @@ int main(void)
 
     int paddleWidth = 8;
     int paddleHeight = 70;
+    int paddleSpeed = 5;
+    int DistanceBetweenPaddleAndWall = 10;
 
-
-    Paddle paddle1(10, Screen_Height / 2 - 35, paddleWidth, paddleHeight, 5);
-    Paddle paddle2(Screen_Width - 10 - paddleWidth, Screen_Height / 2 - 35, paddleWidth, paddleHeight, 5);
+    Paddle paddle1(DistanceBetweenPaddleAndWall, Screen_Height / 2 - (paddleHeight / 2), paddleWidth, paddleHeight, paddleSpeed);
+    Paddle paddle2(Screen_Width - DistanceBetweenPaddleAndWall - paddleWidth, Screen_Height / 2 - (paddleHeight/2), paddleWidth, paddleHeight, paddleSpeed);
 
 
     InitWindow(Screen_Width, Screen_Height, "Pong Game");
 
-    SetTargetFPS(60);
+    SetTargetFPS(90);
     int framesCounter = 0;
     bool isPause = false;
 
@@ -165,6 +167,7 @@ int main(void)
         BeginDrawing();
         ClearBackground(Light_Purple);
         DrawText("Press Space to Pause the Game", 10, Screen_Height - 20, 20, LIGHTGRAY);
+
 
         //updating
 

@@ -208,6 +208,7 @@ int main(void)
             if (CheckCollisionCircleRec(Vector2{ ball.x,ball.y }, ball.Radius,
                 paddle1temp))
             {
+                // Reposition the ball to prevent it from going inside the paddle
                 ball.x = paddle1.GetX() + paddle1.GetWidth() + ball.Radius;
                 ball.Speed_x *= -1;
             }
@@ -220,6 +221,7 @@ int main(void)
             if (CheckCollisionCircleRec(Vector2{ ball.x,ball.y }, ball.Radius,
                 paddle2temp))
             {
+                // Reposition the ball 
                 ball.x = paddle2.GetX() - ball.Radius;
                 ball.Speed_x *= -1;
             }

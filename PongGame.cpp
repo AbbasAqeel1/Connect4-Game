@@ -200,15 +200,25 @@ int main(void)
         {
             ball.Update();
             //Checking for collisions
+
+            //Checking collisions for paddle1
+            Rectangle paddle1temp =
+            { paddle1.GetX(), paddle1.GetY(), paddle1.GetWidth(), paddle1.GetHeight() };
+
             if (CheckCollisionCircleRec(Vector2{ ball.x,ball.y }, ball.Radius,
-                Rectangle{ paddle1.GetX(),paddle1.GetY(),paddle1.GetWidth(),paddle1.GetHeight() }))
+                paddle1temp))
             {
                 ball.x = paddle1.GetX() + paddle1.GetWidth() + ball.Radius;
                 ball.Speed_x *= -1;
             }
 
+            //Checking collisions for paddle2
+            Rectangle paddle2temp =
+            { paddle2.GetX(), paddle2.GetY(), paddle2.GetWidth(), paddle2.GetHeight() };
+
+
             if (CheckCollisionCircleRec(Vector2{ ball.x,ball.y }, ball.Radius,
-                Rectangle{ paddle2.GetX(),paddle2.GetY(),paddle2.GetWidth(),paddle2.GetHeight() }))
+                paddle2temp))
             {
                 ball.x = paddle2.GetX() - ball.Radius;
                 ball.Speed_x *= -1;

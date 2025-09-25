@@ -1,0 +1,13 @@
+# Visual Studio files and folders
+.vs/
+*.exe
+*.aps
+*.dll
+*.obj
+*.pdb
+*.suo
+*.log
+*.user
+Debug/
+Release/
+packages/

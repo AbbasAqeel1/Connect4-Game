@@ -58,7 +58,7 @@ public:
     {
         //Reset ball position in the middle of the table
         x = GetScreenWidth() / 2;
-        y = GetScreenHeight() / 2;
+        y = GetRandomValue(100, GetScreenHeight() - 100);
 
         //Choose the ball dirction randomly
         int SpeedChoices[2] = { -1,1 };
@@ -203,12 +203,14 @@ int main(void)
             if (CheckCollisionCircleRec(Vector2{ ball.x,ball.y }, ball.Radius,
                 Rectangle{ paddle1.GetX(),paddle1.GetY(),paddle1.GetWidth(),paddle1.GetHeight() }))
             {
+                ball.x = paddle1.GetX() + paddle1.GetWidth() + ball.Radius;
                 ball.Speed_x *= -1;
             }
 
             if (CheckCollisionCircleRec(Vector2{ ball.x,ball.y }, ball.Radius,
                 Rectangle{ paddle2.GetX(),paddle2.GetY(),paddle2.GetWidth(),paddle2.GetHeight() }))
             {
+                ball.x = paddle2.GetX() - ball.Radius;
                 ball.Speed_x *= -1;
             }
         }

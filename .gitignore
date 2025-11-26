@@ -1,0 +1,11 @@
+# Visual Studio files and folders
+.vs/
+*.exe
+*.dll
+*.obj
+*.pdb
+*.suo
+*.user
+Debug/
+Release/
+x64/
